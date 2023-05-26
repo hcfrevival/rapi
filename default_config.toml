@@ -1,0 +1,18 @@
+[gin]
+port = "8080"
+mode = "debug"
+domain = "hcfrevival.net"
+origins = [
+    "https://hcfrevival.net",
+    "https://api.hcfrevival.net",
+    "http://localhost",
+    "http://localhost:3000",
+    "http://localhost:8080",
+]
+
+[mongo]
+uri = "mongodb://0.0.0.0:27017"
+database_name = "dev"
+
+[factions]
+map_number = 0
