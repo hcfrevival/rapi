@@ -2,6 +2,7 @@
 # Server build artifacts
 /bin
 /server/bin
+rapi
 
 # Binaries, plugins, libs
 *.dll
