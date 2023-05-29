@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"rapi/config"
 	"rapi/db"
@@ -19,9 +20,16 @@ func main() {
 	}
 
 	// middleware
+	corsConf := cors.DefaultConfig()
+	corsConf.AllowOrigins = conf.Gin.Origins
+	corsConf.AllowCredentials = true
+	corsConf.AddAllowHeaders("Content-Type", "X-XSRF-TOKEN", "Accept", "Origin", "X-Requested-With", "Authorization", "Set-Cookie", "Access-Control-Allow-Origin")
+	corsConf.AddAllowMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+
 	router := gin.New()
 	router.Use(gin.Recovery())
 	router.Use(gin.Logger())
+	router.Use(cors.New(corsConf))
 
 	// route controller, passes mongo + db name to children
 	rc := routers.RouteController{
@@ -32,6 +40,7 @@ func main() {
 	// routes
 	rc.ApplyLeaderboardRoutes(router)
 	rc.ApplyFeedRoutes(router)
+	rc.ApplyServerRoutes(router)
 
 	// start gin
 	err = router.Run(":" + conf.Gin.Port)
