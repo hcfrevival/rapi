@@ -86,6 +86,12 @@ func (controller *Controller) GetLeaderboardQuery(statType model.EStatisticType)
 			case statType == model.PLAYTIME:
 				v = doc.Playtime
 				break
+			case statType == model.MINED_DIAMONDS:
+				v = doc.MinedDiamonds
+				break
+			case statType == model.MINED_NETHERITE:
+				v = doc.MinedNetherite
+				break
 			}
 
 			s := SanitizedStats{

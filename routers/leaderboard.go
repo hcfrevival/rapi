@@ -22,5 +22,7 @@ func (rc *RouteController) ApplyLeaderboardRoutes(router *gin.Engine) {
 		v1.GET("/longshot", c.GetLeaderboardQuery(model.LONGSHOT))
 		v1.GET("/exp", c.GetLeaderboardQuery(model.EXP_EARNED))
 		v1.GET("/playtime", c.GetLeaderboardQuery(model.PLAYTIME))
+		v1.GET("/diamonds", c.GetLeaderboardQuery(model.MINED_DIAMONDS))
+		v1.GET("/netherite", c.GetLeaderboardQuery(model.MINED_NETHERITE))
 	}
 }
