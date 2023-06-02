@@ -25,7 +25,7 @@ type Mongo struct {
 }
 
 type Factions struct {
-	MapNumber uint8 `toml:"map"`
+	MapNumber uint8 `toml:"map_number"`
 }
 
 // Prepare attempts to read the config.toml file in to memory
