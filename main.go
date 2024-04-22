@@ -41,6 +41,7 @@ func main() {
 	rc.ApplyLeaderboardRoutes(router)
 	rc.ApplyFeedRoutes(router)
 	rc.ApplyServerRoutes(router)
+	rc.ApplyTrackerRoutes(router)
 
 	// start gin
 	err = router.Run(":" + conf.Gin.Port)
