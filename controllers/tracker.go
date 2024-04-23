@@ -17,6 +17,7 @@ func (controller *Controller) GetTracker() gin.HandlerFunc {
 		DatabaseName:   controller.DatabaseName,
 		CollectionName: controller.CollectionName,
 	}
+
 	return func(ctx *gin.Context) {
 		id := ctx.Param("id")
 		res, err := db.FindDocumentById[model.EventTracker](mqp, id)
