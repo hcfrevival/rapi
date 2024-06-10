@@ -40,6 +40,7 @@ type EventTrackerEntry struct {
 	SlainPlayer    EventTrackerPlayerFields  `json:"slain,omitempty" bson:"slain,omitempty"`
 	KillerPlayer   EventTrackerPlayerFields  `json:"killer,omitempty" bson:"killer,omitempty"`
 	Faction        EventTrackerFactionFields `json:"faction,omitempty" bson:"faction,omitempty"`
-	NewTicketCount uint8                     `json:"tickets_lost,omitempty" bson:"tickets_lost,omitempty"`
+	NewTicketCount int8                      `json:"new_ticket_count,omitempty" bson:"new_ticket_count,omitempty"`
+	TicketsLost    int8                      `json:"tickets_lost,omitempty" bson:"tickets_lost,omitempty"`
 	Location       Location                  `json:"location,omitempty" bson:"location,omitempty"`
 }
